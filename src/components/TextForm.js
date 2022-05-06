@@ -3,8 +3,8 @@ import React,{useState} from 'react'
 export default function TextForm(props) {
     let myStyle=
     {
-		color:props.mode==='light'?'black':'white',
-		backgroundColor: props.mode==='dark'?'grey':'white',
+		color:props.mode==='light'?'black':'#1ffffe',
+		backgroundColor: props.mode==='dark'?'#1f1f3d':'white',
         transition:'all 0.5s ease 0s'
 	}
     const handleUpClick=()=>
@@ -66,7 +66,7 @@ export default function TextForm(props) {
     </div>
         <div className='container my-2'>
             <h1>Your Text Summary</h1>
-            <p><b>{text.length>0?text.split(" ").length:0 } words and {text.length} characters</b></p>
+            <p><b>{text.split(" ").filter((e)=>{return e.length!==0}) } words and {text.length} characters</b></p>
             <p><b>On Average {0.005*text.split(" ").length} Minutes to read </b></p>
             <h2>preview</h2>
             <p>{text}</p>
